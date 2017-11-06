@@ -1,2 +1,2 @@
-# Digit-Images
-This is a web application using Python to read an image file uploaded by the user or an image they draw to determine what digit is present. 
+# Digit Images - Emerging Technologies
+This [project](https://emerging-technologies.github.io/problems/project.html) is for the [Emerging Technologies](https://emerging-technologies.github.io/) module in the Software Development course I am part taking in. The aim of the project is to read an image that will either be drawn by the user or in a file the user will upload the the web application. I will be using Python and Flask to do the web app.
