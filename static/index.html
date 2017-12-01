@@ -51,19 +51,33 @@
     </nav>
 
     <!-- http://www.w3schools.com/bootstrap/bootstrap_forms.asp -->
-    <div>
-        <form>
-            <div>
+    <div class = "row">
+        <div class = "col-sm-6">
+            <form>
                 <h3>Draw a Digit:</h3>
-                <canvas id = "can" width = "200" height = "200" style="border:1px solid #6D6969;">
-                
-                
-                </canvas>
-            </div>
-        </form>
-
-
+                <canvas id = "can" width = "200" height = "200" style="border:1px solid #6D6969;"></canvas>
+                <input type="submit">
+            </form>
+        </div>
+        <!--- Adapted from https://stackoverflow.com/questions/44926465/upload-image-in-flask -->
+        <div class = "col-sm-6">
+            <form method=POST enctype=multipart/form-data action="{{url_for('upload')}}">
+                <h3>Upload a File:</h3>
+                <input type=file name=upload>
+                <input type="submit">
+        
+            </form>
+        </div>
     </div>
+    <div class ="row">
+            <textarea>
+                Result will be displayed here. 
+            </textarea>
+
+        </div>
+
+    
+    
 
 
     <!-- Bootstrap core JavaScript -->
