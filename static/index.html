@@ -52,9 +52,10 @@
             <div class = "col-sm-6">
             
                 <h3>Upload a File:</h3>
+                <!--- Adpated from https://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded -->
                 <form id="form1" runat="server">
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                    <img id="blah" src="#"/>
+                    <img id="show" src="#" width="200" height="200"/>
                     <input type="file" name="img" id="img"/>
                     <button type="submit" class="btn btn-default">Submit</button> 
                         
@@ -75,6 +76,7 @@
         </div>
     </div>
 
+    <!--- Adpated from https://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded -->
     <script>
        function readURL(input) {
         
@@ -82,7 +84,7 @@
             var reader = new FileReader();
         
             reader.onload = function(e) {
-              $('#blah').attr('src', e.target.result);
+              $('#show').attr('src', e.target.result);
             }
         
             reader.readAsDataURL(input.files[0]);
