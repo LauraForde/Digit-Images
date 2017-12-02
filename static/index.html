@@ -52,14 +52,18 @@
             <div class = "col-sm-6">
             
                 <h3>Upload a File:</h3>
-                <textarea rows="10" cols="30">Display image here hopefully</textarea>
-                <input type="file" name="img">
-                <button type="submit" class="btn btn-default">Submit</button> 
+                <form id="form1" runat="server">
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                    <img id="blah" src="#"/>
+                    <input type="file" name="img" id="img"/>
+                    <button type="submit" class="btn btn-default">Submit</button> 
+                        
+                </form>
                 
             </div>
         </form>   
-            
     </div>
+
     <div class ="row">
         <div class = "col-sm-12">
             <form>
@@ -71,12 +75,32 @@
         </div>
     </div>
 
+    <script>
+       function readURL(input) {
+        
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+        
+            reader.onload = function(e) {
+              $('#blah').attr('src', e.target.result);
+            }
+        
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+        
+        $("#img").change(function() {
+          readURL(this);
+        });
+   
+    </script>
+
     <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-      
+    
   </body>
 </html>
