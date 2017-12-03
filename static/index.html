@@ -39,17 +39,10 @@
         forms: http://www.w3schools.com/bootstrap/bootstrap_forms.asp 
         grids: https://www.w3schools.com/bootstrap/bootstrap_grid_basic.asp
     -->
-    <div class = "row">
+    <div align = "center">
         <form method=POST enctype=multipart/form-data action="/upload">
-            <div class = "col-sm-6" float="right">
-                <h3>Draw a Digit:</h3>
-                <div>
-                    <canvas id = "can" width = "200" height = "200" style="border:1px solid #6D6969;"></canvas>      
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </div>
             <!--- Adapted from https://stackoverflow.com/questions/44926465/upload-image-in-flask -->
-            <div class = "col-sm-6">
+            <div >
             
                 <h3>Upload a File:</h3>
                 <!--- Adpated from https://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded -->
@@ -65,15 +58,10 @@
         </form>   
     </div>
 
-    <div class ="row">
-        <div class = "col-sm-12">
+    <div align = "center">
             <form>
                 <h3>The Prediction:</h3>
-                <textarea rows="4" cols="50">
-                    Result will be displayed here. 
-                </textarea>
             </form>
-        </div>
     </div>
 
     <!--- Adpated from https://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded -->

@@ -1,2 +1,4 @@
 # Digit Images - Emerging Technologies
 This [project](https://emerging-technologies.github.io/problems/project.html) is for the [Emerging Technologies](https://emerging-technologies.github.io/) module in the Software Development course I am part taking in. The aim of the project is to read an image that will either be drawn by the user or in a file the user will upload the the web application. I will be using TenserFlow and Flask to do the web app.
+
+For this project we are expected to create a web application that will allow a user to upload an image from their computer or draw a digit in the canvas (if I ever figure it out) and then have that digit compare against the MNIST data set to provide a prediciton on what the digit may be. This project is very intersting and I am learning a lot but I am stuggling massively with trying to get things to work.

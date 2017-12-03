@@ -1,14 +1,13 @@
 ''' Adapted from
 https://www.tensorflow.org/get_started/mnist/beginners
 '''
+import tensorflow as tf
 
 # Downloading MNIST data
 from tensorflow.examples.tutorials.mnist import input_data
 # Importing the data, one hot seperates the data into matrices and each matrix will
 # have only one '1' value, this will enable the machine to read without using words
 data = input_data.read_data_sets("MNIST_data/", one_hot=True)
-
-import tensorflow as tf
 
 # Flattening each image into 784-dimensional vector, None means the dimension can be any length, 2-D tensor
 # of floating point numbers
@@ -41,5 +40,10 @@ for i in range(1000):
 correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
+# Adapted from http://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/
+saver = tf.train.Saver(max_to_keep=2)
+save_to = "/save/model"
+
+saver.save(sess, save_to)
 # Print accuracy
 print(sess.run(accuracy, feed_dict={x: data.test.images, y_: data.test.labels}))
