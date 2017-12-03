@@ -28,22 +28,23 @@ cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=
 train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
 # Launching model
 sess = tf.InteractiveSession()
+sess.run(tf.global_variables_initializer())
 # Initialise variables created
 tf.global_variables_initializer().run()
 
+saver = tf.train.Saver()
 # Loop and batch read images and add to session
 for i in range(1000):
     batch_xs, batch_ys = data.train.next_batch(100)
     sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
-
+    saver.save(sess, 'save/mod.ckpt')
 # Check to see if prediction matches are correct
 correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 # Adapted from http://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/
-saver = tf.train.Saver(max_to_keep=2)
-save_to = "/save/model"
 
-saver.save(sess, save_to)
+
+
 # Print accuracy
 print(sess.run(accuracy, feed_dict={x: data.test.images, y_: data.test.labels}))
